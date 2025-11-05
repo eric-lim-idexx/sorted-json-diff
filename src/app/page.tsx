@@ -1,7 +1,14 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
-import { Settings, FileUp, Edit3, Clipboard, Check } from "lucide-react";
+import {
+  Check,
+  Clipboard,
+  Edit3,
+  FileBracesCorner,
+  FileUp,
+  Settings,
+} from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 interface SortingRule {
   id: string;
@@ -699,11 +706,7 @@ function SettingsModal({
       {/* Header */}
       <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-green-500 rounded flex items-center justify-center">
-            <span className="text-white font-bold text-sm">
-              <>{"{ .. }"}</>{" "}
-            </span>
-          </div>
+          <Settings size={20} />
           <span className="font-semibold text-gray-900">Settings</span>
         </div>
         <button
@@ -1211,11 +1214,7 @@ export default function Home() {
           {/* Left Section */}
           <div className="flex items-center space-x-4 flex-1">
             <div className="flex items-center space-x-2">
-              <div className="w-9 h-9 bg-green-500 rounded flex items-center justify-center">
-                <span className="text-white font-bold text-sm">
-                  <>{"{ .. }"}</>
-                </span>
-              </div>
+              <FileBracesCorner size={30} />
               <span className="font-semibold text-gray-900">
                 Sorted JSON Diff
               </span>
@@ -1272,9 +1271,9 @@ export default function Home() {
       <div className="flex h-[calc(100vh-80px)]">
         {/* Left Panel */}
         <div className="flex-1 flex flex-col border-r border-gray-200">
-          <div className="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center justify-between">
+          <div className="bg-gray-100 px-5 py-3 border-b border-gray-200 flex items-center justify-between">
             <div className="flex gap-2">
-              <h2 className="font-medium text-gray-700">Original JSON</h2>
+              <h2 className="font-semibold text-gray-700">Original JSON</h2>
               <button
                 onClick={() => copyToClipboard("left")}
                 className={`hover:text-blue-800 flex items-center gap-1 ${
@@ -1302,7 +1301,7 @@ export default function Home() {
               />
               <label
                 htmlFor="left-file-upload"
-                className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer flex items-center gap-1"
+                className="text-sm text-gray-900 hover:text-gray-600 cursor-pointer flex items-center gap-1"
               >
                 <FileUp size={16} />
                 Open file
@@ -1394,9 +1393,9 @@ export default function Home() {
 
         {/* Right Panel */}
         <div className="flex-1 flex flex-col">
-          <div className="bg-gray-100 px-4 py-3 border-b border-gray-200 flex items-center justify-between">
+          <div className="bg-gray-100 px-5 py-3 border-b border-gray-200 flex items-center justify-between">
             <div className="flex gap-2">
-              <h2 className="font-medium text-gray-700">Changed JSON</h2>
+              <h2 className="font-semibold text-gray-700">Changed JSON</h2>
               <button
                 onClick={() => copyToClipboard("right")}
                 className={`hover:text-blue-800 flex items-center gap-1 ${
@@ -1424,7 +1423,7 @@ export default function Home() {
               />
               <label
                 htmlFor="right-file-upload"
-                className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer flex items-center gap-1"
+                className="text-sm text-gray-900 hover:text-gray-600 cursor-pointer flex items-center gap-1"
               >
                 <FileUp size={16} />
                 Open file
