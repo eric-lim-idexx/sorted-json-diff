@@ -1,43 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with
-[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+pnpm install
+```
+
+Run the development server:
 
 ```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result.
+Open http://localhost:3000 with your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page
-auto-updates as you edit the file.
+## Usage
 
-This project uses
-[`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
-to automatically optimize and load [Geist](https://vercel.com/font), a new font
-family for Vercel.
+Paste JSON texts for comparison (or open files) and hit the **Sort and diff**
+button.
 
-## Learn More
+<div>
+  <img src="./img/Screenshot 2025-11-05 at 9.12.50 PM.png" width="45%">
+  <img src="./img/Screenshot 2025-11-05 at 9.14.11 PM.png" width="45%">
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+For complex shapes, click **Settings** and add sorting rules. For example, a
+shape like below:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```json
+{
+  "data": [
+    {
+      "id": "item_001",
+      "type": "itemType",
+      "attributes": {
+        "name": "Sample Item",
+        "category": "Category A",
+        "tags": []
+      },
+      "relationships": {
+        "owner": {
+          "type": "person",
+          "id": "person_123"
+        },
+        "group": {
+          "type": "group",
+          "id": "group_456"
+        }
+      }
+    }
+  ]
+}
+```
 
-You can check out
-[the Next.js GitHub repository](https://github.com/vercel/next.js) - your
-feedback and contributions are welcome!
+can be sorted with rules like (from highest to lowest precedence):
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
-
-Check out our
-[Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying)
-for more details.
+- `data[].relationships.group.id`
+- `data[].attributes.name`
