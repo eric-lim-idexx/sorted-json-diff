@@ -1008,16 +1008,16 @@ export default function Home() {
   "habitat": "grassland"
 }`);
   const [rightJson, setRightJson] = useState(`{
-  "name": "Ivysaur",
-  "type": "Grass, Poison",
-  "height_m": 1.0,
   "weight_kg": 13,
+  "type": "Grass, Poison",
   "shape": "quadruped",
+  "name": "Ivysaur",
+  "height_m": 1.0,
+  "habitat": "grassland"
+  "evolvesTo": "Venusaur",
+  "evolutionStage": "Stage 1",
   "color": "green",
   "abilities": ["Overgrow", "Chlorophyll"],
-  "evolutionStage": "Stage 1",
-  "evolvesTo": "Venusaur",
-  "habitat": "grassland"
 }`);
   const [leftError, setLeftError] = useState("");
   const [rightError, setRightError] = useState("");
